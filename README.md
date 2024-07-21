@@ -1,71 +1,89 @@
-# context-copy README
+# Copy for Context - VS Code Extension
 
-This is the README for your extension "context-copy". After writing up a brief description, we recommend including the following sections.
+## Overview
+
+"Copy for Context" is a Visual Studio Code extension that allows you to quickly copy selected files as formatted markdown. This is particularly useful when you need to share code snippets with AI assistants like ChatGPT or Claude, or when you want to create documentation that includes code from multiple files.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Select multiple files in the VS Code Explorer
+- Right-click and choose "Copy for Context"
+- Automatically copies selected files as markdown to your clipboard
+- Includes file paths and automatically detects language for syntax highlighting
+- Works with all file types supported by VS Code
 
-For example if there is an image subfolder under your extension project workspace:
+## Installation
 
-\!\[feature X\]\(images/feature-x.png\)
+### From VSIX File
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+1. Download the `.vsix` file from the [releases page](link-to-your-releases-page).
+2. Open VS Code
+3. Go to the Extensions view (Ctrl+Shift+X or Cmd+Shift+X on Mac)
+4. Click on the '...' at the top of the Extensions view
+5. Choose 'Install from VSIX...'
+6. Select the downloaded `.vsix` file
 
-## Requirements
+### From VS Code Marketplace
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+*(Note: Include this section only if you've published to the VS Code Marketplace)*
 
-## Extension Settings
+1. Open VS Code
+2. Go to the Extensions view (Ctrl+Shift+X or Cmd+Shift+X on Mac)
+3. Search for "Copy for Context"
+4. Click "Install"
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## Usage
 
-For example:
+1. In the VS Code Explorer, select one or more files you want to copy.
+2. Right-click on the selection.
+3. Choose "Copy for Context" from the context menu.
+4. The selected files will be copied to your clipboard as formatted markdown.
+5. Paste the content wherever you need it (e.g., in a conversation with an AI assistant).
 
-This extension contributes the following settings:
+## Example Output
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+When you copy files using this extension, the output will look something like this:
+
+```markdown
+## File: src/example.js
+Language: javascript
+
+```javascript
+function hello() {
+    console.log("Hello, world!");
+}
+```
+
+## File: src/styles.css
+Language: css
+
+```css
+body {
+    font-family: Arial, sans-serif;
+}
+```
+```
+
+## Configuration
+
+Currently, this extension does not require any configuration. It works out of the box!
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+*(List any known issues or limitations here. If there are none, you can omit this section.)*
 
-## Release Notes
+## Contributing
 
-Users appreciate release notes as you update your extension.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-### 1.0.0
+## License
 
-Initial release of ...
+*(Include your chosen license here. If you haven't chosen a license yet, consider using an open-source license like MIT or Apache 2.0.)*
 
-### 1.0.1
+## Support
 
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+If you encounter any problems or have any suggestions, please open an issue on the [GitHub repository](link-to-your-github-repo).
 
 ---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Happy coding, and enjoy using Copy for Context!
