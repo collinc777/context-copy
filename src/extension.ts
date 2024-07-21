@@ -5,7 +5,7 @@ import * as fs from 'fs';
 export function activate(context: vscode.ExtensionContext) {
     console.log('Activating extension "file-to-markdown"');
 
-    let disposable = vscode.commands.registerCommand('extension.filesToMarkdown', (uri: vscode.Uri, selectedFiles: vscode.Uri[]) => {
+    let disposable = vscode.commands.registerCommand('extension.filesToMarkdown', async (uri: vscode.Uri, selectedFiles: vscode.Uri[]) => {
         console.log('Command "extension.filesToMarkdown" triggered');
         
         if (!selectedFiles || selectedFiles.length === 0) {
@@ -21,17 +21,16 @@ export function activate(context: vscode.ExtensionContext) {
 
         let markdownContent = '';
 
-        selectedFiles.forEach(file => {
+        for (const file of selectedFiles) {
             const relativePath = vscode.workspace.asRelativePath(file);
             const fileContent = fs.readFileSync(file.fsPath, 'utf8');
-            const languageId = getLanguageId(file.fsPath);
+            const languageId = await getLanguageId(file);
 
             markdownContent += `## File: ${relativePath}\n`;
-            markdownContent += `Language: ${languageId}\n\n`;
             markdownContent += '```' + languageId + '\n';
             markdownContent += fileContent + '\n';
             markdownContent += '```\n\n';
-        });
+        }
 
         // Copy to clipboard
         vscode.env.clipboard.writeText(markdownContent).then(() => {
@@ -44,19 +43,14 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(disposable);
 }
 
-function getLanguageId(filePath: string): string {
-    const extension = path.extname(filePath).toLowerCase();
-    // This is a basic mapping, you might want to expand it
-    const languageMap: {[key: string]: string} = {
-        '.js': 'javascript',
-        '.ts': 'typescript',
-        '.py': 'python',
-        '.html': 'html',
-        '.css': 'css',
-        '.json': 'json',
-        // Add more mappings as needed
-    };
-    return languageMap[extension] || 'plaintext';
+async function getLanguageId(uri: vscode.Uri): Promise<string> {
+    try {
+        const document = await vscode.workspace.openTextDocument(uri);
+        return document.languageId;
+    } catch (error) {
+        console.error(`Error detecting language for ${uri.fsPath}:`, error);
+        return 'plaintext';
+    }
 }
 
 export function deactivate() {}
