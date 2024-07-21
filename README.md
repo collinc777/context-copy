@@ -16,7 +16,7 @@
 
 ### From VSIX File
 
-1. Download the `.vsix` file from the [releases page](link-to-your-releases-page).
+1. Download the `.vsix` file from the [releases page](https://github.com/collinc777/context-copy/releases).
 2. Open VS Code
 3. Go to the Extensions view (Ctrl+Shift+X or Cmd+Shift+X on Mac)
 4. Click on the '...' at the top of the Extensions view
@@ -82,7 +82,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Support
 
-If you encounter any problems or have any suggestions, please open an issue on the [GitHub repository](link-to-your-github-repo).
+If you encounter any problems or have any suggestions, please open an issue on the [GitHub repository](https://github.com/collinc777/context-copy).
 
 ---
 
