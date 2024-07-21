@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/collinc777/context-copy"
   },
-  "description": "makes it easy to copy multiple files and add them to context",
+  "description": "VS Code extension that enables one-click copying of multiple files as markdown. Features automatic language detection, file path inclusion, and clipboard integration for seamless code sharing and documentation.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.91.0"
