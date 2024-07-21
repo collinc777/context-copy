@@ -3,8 +3,18 @@ import * as path from 'path';
 import * as fs from 'fs';
 
 export function activate(context: vscode.ExtensionContext) {
+    console.log('Activating extension "file-to-markdown"');
+
     let disposable = vscode.commands.registerCommand('extension.filesToMarkdown', (uri: vscode.Uri, selectedFiles: vscode.Uri[]) => {
+        console.log('Command "extension.filesToMarkdown" triggered');
+        
         if (!selectedFiles || selectedFiles.length === 0) {
+            selectedFiles = vscode.window.activeTextEditor 
+                ? [vscode.window.activeTextEditor.document.uri]
+                : [];
+        }
+
+        if (selectedFiles.length === 0) {
             vscode.window.showErrorMessage('No files selected');
             return;
         }
@@ -23,9 +33,12 @@ export function activate(context: vscode.ExtensionContext) {
             markdownContent += '```\n\n';
         });
 
-        // Create a new untitled document with the markdown content
-        vscode.workspace.openTextDocument({ content: markdownContent, language: 'markdown' })
-            .then(doc => vscode.window.showTextDocument(doc));
+        // Copy to clipboard
+        vscode.env.clipboard.writeText(markdownContent).then(() => {
+            vscode.window.showInformationMessage('Files copied to clipboard as markdown');
+        }, (error) => {
+            vscode.window.showErrorMessage('Failed to copy to clipboard: ' + error);
+        });
     });
 
     context.subscriptions.push(disposable);
