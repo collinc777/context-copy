@@ -1,6 +1,7 @@
 {
   "name": "context-copy",
   "displayName": "Context Copy",
+  "publisher": "collinc777",
   "repository": {
     "type": "git",
     "url": "https://github.com/collinc777/context-copy"
