@@ -78,7 +78,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-*(Include your chosen license here. If you haven't chosen a license yet, consider using an open-source license like MIT or Apache 2.0.)*
+MIT
 
 ## Support
 
