@@ -22,14 +22,62 @@
       {
         "command": "extension.filesToMarkdown",
         "title": "Copy for Context"
+      },
+      {
+        "command": "extension.tabsToMarkdown",
+        "title": "Copy All Open Tabs for Context"
+      },
+      {
+        "command": "extension.singleFileToMarkdown",
+        "title": "Copy This File for Context"
+      },
+      {
+        "command": "extension.tabGroupToMarkdown",
+        "title": "Copy This Tab Group for Context"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "when": "explorerViewletVisible && resourceSet",
+          "command": "extension.filesToMarkdown"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "extension.tabsToMarkdown"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "extension.singleFileToMarkdown",
+          "group": "navigation@999",
+          "when": "resource"
+        },
+        {
+          "command": "extension.tabGroupToMarkdown",
+          "group": "navigation@999"
+        },
+        {
+          "command": "extension.tabsToMarkdown",
+          "group": "navigation@999"
+        }
+      ],
+      "commandPalette": [
+        {
           "command": "extension.filesToMarkdown",
-          "group": "navigation"
+          "title": "Copy for Context"
+        },
+        {
+          "command": "extension.tabsToMarkdown",
+          "title": "Copy All Open Tabs for Context"
+        },
+        {
+          "command": "extension.singleFileToMarkdown",
+          "title": "Copy This File for Context"
+        },
+        {
+          "command": "extension.tabGroupToMarkdown",
+          "title": "Copy This Tab Group for Context"
         }
       ]
     }
@@ -41,7 +89,8 @@
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js",
-    "package": "vsce package"
+    "package": "vsce package",
+    "cpi": "npm run compile && npm run package && code-insiders --install-extension $(ls context-copy-*.vsix | head -n 1)"
   },
   "devDependencies": {
     "@types/vscode": "^1.91.0",
@@ -50,8 +99,6 @@
     "@typescript-eslint/eslint-plugin": "^7.14.1",
     "@typescript-eslint/parser": "^7.11.0",
     "eslint": "^8.57.0",
-    "typescript": "^5.4.5",
-    "@vscode/test-cli": "^0.0.9",
-    "@vscode/test-electron": "^2.4.0"
+    "typescript": "^5.4.5"
   }
 }
