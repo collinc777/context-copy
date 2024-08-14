@@ -48,26 +48,26 @@ _(Note: Include this section only if you've published to the VS Code Marketplace
 
 ## Usage
 
-1. **Copy Selected Files:**
+1. **Copy for Context:**
 
    - In the VS Code Explorer, select one or more files you want to copy.
    - Right-click on the selection.
    - Choose "Copy for Context" from the context menu.
    - The selected files will be copied to your clipboard as formatted markdown.
 
-2. **Copy This File:**
+2. **Copy This File for Context:**
 
    - Right-click on the tab title of the file you want to copy.
    - Choose "Copy This File for Context" from the context menu.
    - The file will be copied to your clipboard as formatted markdown.
 
-3. **Copy This Tab Group:**
+3. **Copy This Tab Group for Context:**
 
    - Right-click on the tab title of any file in the tab group.
    - Choose "Copy This Tab Group for Context" from the context menu.
    - All files in the tab group will be copied to your clipboard as formatted markdown.
 
-4. **Copy All Open Tabs:**
+4. **Copy All Open Tabs for Context:**
 
    - Right-click on any tab title or use the command palette.
    - Choose "Copy All Open Tabs for Context".
@@ -101,15 +101,13 @@ body {
 }
 ```
 
-```
-
 ## Configuration
 
 Currently, this extension does not require any configuration. It works out of the box!
 
 ## Known Issues
 
-*(List any known issues or limitations here. If there are none, you can omit this section.)*
+_(List any known issues or limitations here. If there are none, you can omit this section.)_
 
 ## Contributing
 
@@ -126,4 +124,3 @@ If you encounter any problems or have any suggestions, please open an issue on t
 ---
 
 Happy coding, and enjoy using Copy for Context!
-```
