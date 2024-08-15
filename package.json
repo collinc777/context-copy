@@ -87,7 +87,10 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
+    "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet",
+    "lint:fix": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
+    "format": "prettier --write 'src/**/*.{js,ts,tsx}'",
+    "format:check": "prettier --check 'src/**/*.{js,ts,tsx}'",
     "test": "node ./out/test/runTest.js",
     "package": "vsce package",
     "cpi": "npm run compile && npm run package && code-insiders --install-extension $(ls context-copy-*.vsix | head -n 1)"
@@ -100,6 +103,11 @@
     "@typescript-eslint/parser": "^7.11.0",
     "@vscode/test-cli": "^0.0.10",
     "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.9",
+    "prettier": "^3.3.3",
     "typescript": "^5.4.5"
   }
 }
