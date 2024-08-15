@@ -6,62 +6,99 @@
 
 ## Features
 
-- Select multiple files in the VS Code Explorer
-- Right-click and choose "Copy for Context"
-- Automatically copies selected files as markdown to your clipboard
-- Includes file paths and automatically detects language for syntax highlighting
-- Works with all file types supported by VS Code
+- **Copy for Context:**
+
+  - Select multiple files in the VS Code Explorer, right-click, and choose "Copy for Context."
+  - Automatically copies selected files as markdown to your clipboard.
+  - Includes file paths and automatically detects language for syntax highlighting.
+
+- **Copy This File for Context:**
+
+  - Right-click on any tab title or use the command palette to copy the active file as markdown.
+
+- **Copy This Tab Group for Context:**
+
+  - Right-click on any tab title or use the command palette to copy all files in the current tab group as markdown.
+
+- **Copy All Open Tabs for Context:**
+
+  - Use the command palette or right-click on any tab title to copy all open tabs as markdown.
+
+- Works with all file types supported by VS Code.
 
 ## Installation
 
 ### From VSIX File
 
 1. Download the `.vsix` file from the [releases page](https://github.com/collinc777/context-copy/releases).
-2. Open VS Code
-3. Go to the Extensions view (Ctrl+Shift+X or Cmd+Shift+X on Mac)
-4. Click on the '...' at the top of the Extensions view
-5. Choose 'Install from VSIX...'
-6. Select the downloaded `.vsix` file
+2. Open VS Code.
+3. Go to the Extensions view (Ctrl+Shift+X or Cmd+Shift+X on Mac).
+4. Click on the '...' at the top of the Extensions view.
+5. Choose 'Install from VSIX...'.
+6. Select the downloaded `.vsix` file.
 
 ### From VS Code Marketplace
 
-*(Note: Include this section only if you've published to the VS Code Marketplace)*
+_(Note: Include this section only if you've published to the VS Code Marketplace)_
 
-1. Open VS Code
-2. Go to the Extensions view (Ctrl+Shift+X or Cmd+Shift+X on Mac)
-3. Search for "Copy for Context"
-4. Click "Install"
+1. Open VS Code.
+2. Go to the Extensions view (Ctrl+Shift+X or Cmd+Shift+X on Mac).
+3. Search for "Copy for Context".
+4. Click "Install".
 
 ## Usage
 
-1. In the VS Code Explorer, select one or more files you want to copy.
-2. Right-click on the selection.
-3. Choose "Copy for Context" from the context menu.
-4. The selected files will be copied to your clipboard as formatted markdown.
+1. **Copy for Context:**
+
+   - In the VS Code Explorer, select one or more files you want to copy.
+   - Right-click on the selection.
+   - Choose "Copy for Context" from the context menu.
+   - The selected files will be copied to your clipboard as formatted markdown.
+
+2. **Copy This File for Context:**
+
+   - Right-click on the tab title of the file you want to copy.
+   - Choose "Copy This File for Context" from the context menu.
+   - The file will be copied to your clipboard as formatted markdown.
+
+3. **Copy This Tab Group for Context:**
+
+   - Right-click on the tab title of any file in the tab group.
+   - Choose "Copy This Tab Group for Context" from the context menu.
+   - All files in the tab group will be copied to your clipboard as formatted markdown.
+
+4. **Copy All Open Tabs for Context:**
+
+   - Right-click on any tab title or use the command palette.
+   - Choose "Copy All Open Tabs for Context".
+   - All open tabs will be copied to your clipboard as formatted markdown.
+
 5. Paste the content wherever you need it (e.g., in a conversation with an AI assistant).
 
 ## Example Output
 
 When you copy files using this extension, the output will look something like this:
 
-```markdown
+````markdown
 ## File: src/example.js
+
 Language: javascript
 
 ```javascript
 function hello() {
-    console.log("Hello, world!");
+  console.log("Hello, world!");
 }
 ```
+````
 
 ## File: src/styles.css
+
 Language: css
 
 ```css
 body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
-```
 ```
 
 ## Configuration
@@ -70,7 +107,7 @@ Currently, this extension does not require any configuration. It works out of th
 
 ## Known Issues
 
-*(List any known issues or limitations here. If there are none, you can omit this section.)*
+_(List any known issues or limitations here. If there are none, you can omit this section.)_
 
 ## Contributing
 
