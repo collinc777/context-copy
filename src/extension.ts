@@ -108,7 +108,13 @@ async function convertFilesToMarkdown(files: vscode.Uri[]) {
 
   for (const file of files) {
     const relativePath = vscode.workspace.asRelativePath(file);
-    const fileContent = fs.readFileSync(file.fsPath, "utf8");
+    let fileContent = fs.readFileSync(file.fsPath, "utf8");
+
+    // Remove BOM if present
+    if (fileContent.charCodeAt(0) === 0xfeff) {
+      fileContent = fileContent.slice(1);
+    }
+
     const languageId = await getLanguageId(file);
 
     markdownContent += `## File: ${relativePath}\n`;
