@@ -31,4 +31,4 @@ jobs:
         node-version: '20'
     - run: npm ci
     - run: npm run compile
-    # - run: npm test
+    - run: npm test
