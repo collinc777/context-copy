@@ -84,6 +84,22 @@ MIT
 
 If you encounter any problems or have any suggestions, please open an issue on the [GitHub repository](https://github.com/collinc777/context-copy).
 
+## Development
+
+This project uses ESLint and Prettier for code linting and formatting. These checks are run in the CI pipeline for all pull requests.
+
+To manually run linting:
+
+```bash
+npm run lint
+```
+
+To manually run formatting:
+
+```bash
+npm run format
+```
+
 ---
 
 Happy coding, and enjoy using Copy for Context!
