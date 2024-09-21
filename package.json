@@ -80,7 +80,11 @@
           "title": "Copy This Tab Group for Context"
         }
       ]
-    }
+    },
+    "extensionKind": [
+      "workspace",
+      "web"
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
