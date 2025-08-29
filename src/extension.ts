@@ -1,5 +1,4 @@
 import * as vscode from 'vscode';
-import * as fs from 'fs';
 
 export function activate(context: vscode.ExtensionContext) {
   console.log('Activating extension "file-to-markdown"');
@@ -87,10 +86,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
-  context.subscriptions.push(disposable1);
-  context.subscriptions.push(disposable2);
-  context.subscriptions.push(disposable3);
-  context.subscriptions.push(disposable4);
+  context.subscriptions.push(disposable1, disposable2, disposable3, disposable4);
 }
 
 async function convertFilesToMarkdown(files: vscode.Uri[]) {
@@ -98,18 +94,19 @@ async function convertFilesToMarkdown(files: vscode.Uri[]) {
 
   for (const file of files) {
     const relativePath = vscode.workspace.asRelativePath(file);
-    let fileContent = fs.readFileSync(file.fsPath, 'utf8');
+    const fileContent = await vscode.workspace.fs.readFile(file);
 
-    // Remove BOM if present
-    if (fileContent.charCodeAt(0) === 0xfeff) {
-      fileContent = fileContent.slice(1);
+    // Convert Uint8Array to string and remove BOM if present
+    let fileContentString = new TextDecoder().decode(fileContent);
+    if (fileContentString.charCodeAt(0) === 0xfeff) {
+      fileContentString = fileContentString.slice(1);
     }
 
     const languageId = await getLanguageId(file);
 
     markdownContent += `## File: ${relativePath}\n`;
     markdownContent += '```' + languageId + '\n';
-    markdownContent += fileContent + '\n';
+    markdownContent += fileContentString + '\n';
     markdownContent += '```\n\n';
   }
 
